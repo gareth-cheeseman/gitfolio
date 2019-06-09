@@ -16,9 +16,6 @@
 </head>
 
 <body>
-    <div id="loading">
-        <div id="spinner"></div>
-    </div>
     <div id="profile">
         <div id="profile_img"></div>
         <div id="username">
@@ -41,7 +38,7 @@
             <div id="blogs"></div>
         </div>
         <div id="footer">
-            <a href="https://github.com/imfunniee" target="_blank">made on earth by a human</a>
+            <a href="https://github.com/imfunniee" target="_blank">Created with Gitfolio</a>
         </div>
     </div>
     <script type="text/javascript">
@@ -89,28 +86,28 @@
 
     <script>
         const magicProjectsGrid = new MagicGrid({
-          container: '#work_section',
-          animate: false,
-          gutter: 30, // default gutter size
-          static: true,
-          useMin: false,
-          maxColumns: 2,
-          useTransform: true
+            container: '#work_section',
+            animate: false,
+            gutter: 30, // default gutter size
+            static: true,
+            useMin: false,
+            maxColumns: 2,
+            useTransform: true
         });
 
         const magicForksGrid = new MagicGrid({
-          container: '#forks_section',
-          animate: false,
-          gutter: 30, // default gutter size
-          static: true,
-          useMin: false,
-          maxColumns: 2,
-          useTransform: true
+            container: '#forks_section',
+            animate: false,
+            gutter: 30, // default gutter size
+            static: true,
+            useMin: false,
+            maxColumns: 2,
+            useTransform: true
         })
 
         $('document').ready(() => {
-          magicProjectsGrid.listen();
-          magicForksGrid.listen();
+            magicProjectsGrid.listen();
+            magicForksGrid.listen();
         });
     </script>
 </body>
