@@ -20,7 +20,7 @@ const config = path.join(outDir, 'config.json');
  */
 async function populateCSS({
     theme = 'light',
-    background = 'https://images.unsplash.com/photo-1553748024-d1b27fb3f960?w=500&h=1000&q=80&fit=crop',
+    background = '/img/lights.jpg',
 } = {}) {
     /* Get the theme the user requests. Defaults to 'light' */
     theme = `${theme}.css`;
@@ -36,6 +36,15 @@ async function populateCSS({
     }
     /* Copy over the template CSS stylesheet */
     await fs.copyFileAsync(template, stylesheet);
+
+    /* Copy over the local image */
+    try {
+        await fs.accessAsync(`${outDir}/img`, fs.constants.F_OK);
+    } catch (err) {
+        await fs.mkdirAsync(`${outDir}/img`);
+    }
+
+    await fs.copyFileSync(`${assetDir}/img/lights.jpg`, `${outDir}/img/lights.jpg`);
 
     /* Add Service Worker */
     await fs.copyFileSync(serviceWorker, `${outDir}/service-worker.js`);
